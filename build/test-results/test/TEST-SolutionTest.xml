@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SolutionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-10-11T06:01:43" hostname="CNbinhan.bai" time="0.001">
+<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-11T14:31:13" hostname="CNbinhan.bai" time="0.001">
   <properties/>
-  <testcase name="shouldReturnNegativeOne_whenInput_bba_givenAaaaa" classname="SolutionTest" time="0.001"/>
-  <testcase name="shouldReturn0_whenInput_a_given_a" classname="SolutionTest" time="0.0"/>
-  <testcase name="shouldReturn2_whenInput_ll_givenHello" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturn111221_given5" classname="SolutionTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
