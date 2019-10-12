@@ -6,6 +6,52 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
+     * 最长公共前缀
+     * 编写一个函数来查找字符串数组中的最长公共前缀。
+     *
+     * 如果不存在公共前缀，返回空字符串 ""。
+     *
+     * @param strs 字符串数组
+     * @return 最长公共前缀
+     */
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0 || strs[0].equals("")) {
+            return "";
+        }
+        int index = 0;
+        StringBuilder commonPrefixBuilder = new StringBuilder();
+        while (true) {
+            if (index>=strs[0].length()) {
+                return commonPrefixBuilder.toString();
+            }
+            String currentChar = strs[0].substring(index, index+1);
+            for(String str : strs) {
+                if (str.equals("") || index >= str.length() || !str.substring(index, index+1).equals(currentChar)) {
+                    return commonPrefixBuilder.toString();
+                }
+            }
+            commonPrefixBuilder.append(currentChar);
+            index ++;
+        }
+    }
+
+    public String newLongestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        String prefix = strs[0];
+        for (String str : strs) {
+           while (str.indexOf(prefix) != 0) {
+               prefix = prefix.substring(0, prefix.length()-1);
+               if (prefix.equals("")) {
+                   return "";
+               }
+           }
+        }
+        return prefix;
+    }
+
+    /**
      * 实现 strStr() 函数。
      *
      * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。

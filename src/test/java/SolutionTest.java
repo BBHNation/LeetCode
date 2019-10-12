@@ -14,6 +14,42 @@ public class SolutionTest {
         solution = new Solution();
     }
 
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [最长公共前缀]
+     */
+    @Test
+    public void shouldReturnFl_whenGetLongestCommonPrefix_givenFlowerFlowFlight() {
+        String result = solution.longestCommonPrefix(new String[]{"flower", "flow", "flight"});
+        Assert.assertEquals("fl", result);
+
+        String newResult = solution.newLongestCommonPrefix(new String[]{"flower", "flow", "flight"});
+        Assert.assertEquals("fl", newResult);
+    }
+
+    @Test
+    public void shouldReturnBlank_whenGetLongestCommonPrefix_givenDogRacecarCar() {
+        String result = solution.longestCommonPrefix(new String[]{"dog", "racecar", "car"});
+        Assert.assertEquals("", result);
+
+        String newResult = solution.newLongestCommonPrefix(new String[]{"dog", "racecar", "car"});
+        Assert.assertEquals("", newResult);
+    }
+
+    @Test
+    public void shouldReturnBlank_whenGetLongestCommonPrefix_givenBlank() {
+        String result = solution.longestCommonPrefix(new String[]{""});
+        Assert.assertEquals("", result);
+
+        String newResult = solution.newLongestCommonPrefix(new String[]{""});
+        Assert.assertEquals("", newResult);
+    }
+
+    @Test
+    public void shouldReturnA_whenGetLongestCommonPrefix_givenA() {
+        String result = solution.longestCommonPrefix(new String[]{"a"});
+        Assert.assertEquals("a", result);
+    }
 
     /**
      * _____________________________________________________________________________________________
@@ -35,7 +71,7 @@ public class SolutionTest {
     @Test
     public void shouldReturn11_given1() {
         String result = solution.countAndSay(1);
-        Assert.assertEquals("11", result);
+        Assert.assertEquals("1", result);
     }
 
     @Test
