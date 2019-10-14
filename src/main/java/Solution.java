@@ -6,6 +6,20 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
+
+    public void deleteNode(ListNode node) {
+
+    }
+
+
+    /**
      * 最长公共前缀
      * 编写一个函数来查找字符串数组中的最长公共前缀。
      *
