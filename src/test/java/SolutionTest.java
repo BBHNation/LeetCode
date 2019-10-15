@@ -16,6 +16,30 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [deleteNode]
+     */
+
+    @Test
+    public void shouldDeleteNodeThatIndex5_whenInputIndex5_givenNodeList() {
+        //given
+        ListNode head = new ListNode(4);
+        ListNode fiveNode = new ListNode(5);
+        ListNode oneNode = new ListNode(1);
+        ListNode nineNode = new ListNode(9);
+
+        head.next = fiveNode;
+        fiveNode.next = oneNode;
+        oneNode.next = nineNode;
+
+        //when
+        solution.deleteNode(fiveNode);
+
+        //then
+        Assert.assertEquals(1, head.next.val);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [最长公共前缀]
      */
     @Test
