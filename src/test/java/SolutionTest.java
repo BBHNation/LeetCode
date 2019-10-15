@@ -16,6 +16,36 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [删除链表的倒数第N个节点]
+     */
+    @Test
+    public void shouldDeleteNode_whenDeleteNthFromEnd_givenLinkedList() {
+        //given
+        ListNode head = new ListNode(1);
+        head.next =
+            new ListNode(2,
+                new ListNode(3,
+                    new ListNode(4,
+                        new ListNode(5))));
+        //when
+        solution.removeNthFromEnd(head, 2);
+
+        //then
+        Assert.assertEquals(5, head.next.next.next.val);
+    }
+
+    @Test
+    public void shouldDeleteFirstFromEnd_whenRemoveNthFromEnd_given12() {
+        //given
+        ListNode head = new ListNode(1, new ListNode(2));
+        //when
+        ListNode newHead = solution.removeNthFromEnd(head, 1);
+        //then
+        Assert.assertEquals(1, newHead.val);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [deleteNode]
      */
 
