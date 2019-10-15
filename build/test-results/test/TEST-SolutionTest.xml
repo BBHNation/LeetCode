@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-15T04:40:39" hostname="CNbinhan.bai" time="0.001">
+<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-15T05:22:04" hostname="CNbinhan.bai" time="0.001">
   <properties/>
-  <testcase name="shouldDeleteFirstFromEnd_whenRemoveNthFromEnd_given12" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldListReversed_whenReverseList_given12345" classname="SolutionTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -16,6 +16,34 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [反转链表]
+     */
+    @Test
+    public void shouldListReversed_whenReverseList_given12345() {
+        //given
+        ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        //when
+        ListNode newHead = solution.newReverseList(head);
+        //then
+        Assert.assertEquals(5, newHead.val);
+        Assert.assertEquals(4, newHead.next.val);
+        Assert.assertEquals(3, newHead.next.next.val);
+        Assert.assertEquals(2, newHead.next.next.next.val);
+        Assert.assertEquals(1, newHead.next.next.next.next.val);
+    }
+
+    @Test
+    public void shouldReturnEmptyList_whenReverseList_givenEmptyList() {
+        //given
+        ListNode head = null;
+        //when
+        ListNode newHead = solution.reverseList(head);
+        //then
+        Assert.assertNull(newHead);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [删除链表的倒数第N个节点]
      */
     @Test

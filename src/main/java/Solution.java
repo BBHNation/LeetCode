@@ -1,9 +1,58 @@
+import java.util.Stack;
 import javafx.util.Pair;
 
 /**
  * Solution class is saving all the solution function for leetcode questions.
  */
 public class Solution {
+
+    /**
+     * 反转一个单链表。
+     *
+     * 示例:
+     *
+     * 输入: 1->2->3->4->5->NULL
+     * 输出: 5->4->3->2->1->NULL
+     * 进阶:
+     * 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+     *
+     * @param head head of list
+     * @return new head
+     */
+    public ListNode reverseList(ListNode head) {
+        Stack<ListNode> stack = new Stack<>();
+        ListNode pointer = head;
+        while (pointer != null) {
+            stack.push(pointer);
+            pointer = pointer.next;
+        }
+        if (stack.isEmpty()) {
+            return head;
+        }
+        head = stack.pop();
+        pointer = head;
+        while (!stack.isEmpty()) {
+            pointer.next = stack.pop();
+            pointer = pointer.next;
+            pointer.next = null;
+        }
+        return head;
+    }
+
+    public ListNode newReverseList(ListNode head) {
+        ListNode preNode = null;
+        while (head != null) {
+            ListNode next = head.next;
+
+            head.next = preNode;
+            preNode = head;
+
+            head = next;
+        }
+        return preNode;
+    }
+
+
 
     /**
      * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
