@@ -16,6 +16,28 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [合并两个有序链表]
+     */
+    @Test
+    public void shouldReturnMergedList_whenMergeTwoList_given124And134() {
+        //given
+        ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+
+        //when
+        ListNode mergedList = solution.mergeTwoLists(l1, l2);
+
+        //then
+        Assert.assertEquals(1, mergedList.val);
+        Assert.assertEquals(1, mergedList.next.val);
+        Assert.assertEquals(2, mergedList.next.next.val);
+        Assert.assertEquals(3, mergedList.next.next.next.val);
+        Assert.assertEquals(4, mergedList.next.next.next.next.val);
+        Assert.assertEquals(4, mergedList.next.next.next.next.next.val);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [反转链表]
      */
     @Test
