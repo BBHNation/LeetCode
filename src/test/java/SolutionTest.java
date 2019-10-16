@@ -16,6 +16,36 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [判断环形链表]
+     */
+    @Test
+    public void shouldReturnTrue_whenJudgeHasCycle_givenPos1() {
+        //given
+        ListNode last = new ListNode(-4);
+        ListNode head = new ListNode(3, new ListNode(2, new ListNode(0, last)));
+        last.next = head.next; // cycle
+
+        //when
+        boolean result = solution.hasCycle(head);
+
+        //then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void shouldReturnFalse_whenJudgeHasCycle_given123() {
+        //given
+        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3)));
+
+        //when
+        boolean result = solution.hasCycle(list);
+
+        //then
+        Assert.assertFalse(result);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [合并两个有序链表]
      */
     @Test

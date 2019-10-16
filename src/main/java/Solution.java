@@ -6,6 +6,28 @@ import javafx.util.Pair;
  */
 public class Solution {
 
+
+    /**
+     * 给定一个链表，判断链表中是否有环。
+     *
+     * 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。
+     *
+     * @param head list
+     * @return if the list has cycle;
+     */
+    public boolean hasCycle(ListNode head) {
+        ListNode slowPointer = head;
+        ListNode fastPointer = head;
+        while (fastPointer != null && fastPointer.next != null) {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+            if (slowPointer.equals(fastPointer)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * 回文链表
      * 请判断一个链表是否为回文链表。
@@ -24,8 +46,8 @@ public class Solution {
      * 主要的思路是：快慢指针寻找中间位置，reverse快指针后续的node
      * 然后顺序对比两个链表的内容
      *
-     * @param head
-     * @return
+     * @param head linked list
+     * @return if the list is palindrome
      */
     public boolean isPalindrome(ListNode head) {
         ListNode slowPointer = head;
@@ -47,7 +69,7 @@ public class Solution {
         return true;
     }
 
-    ListNode privateReverseList(ListNode head) {
+    private ListNode privateReverseList(ListNode head) {
         ListNode preNode = null;
         ListNode current = head;
         while (current != null) {
@@ -148,8 +170,6 @@ public class Solution {
         return preNode;
     }
 
-
-
     /**
      * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
      *
@@ -206,7 +226,6 @@ public class Solution {
             node.next = node.next.next;
         }
     }
-
 
     /**
      * 最长公共前缀
@@ -287,7 +306,6 @@ public class Solution {
         return -1;
     }
 
-
     /**
      * 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
      *
@@ -326,7 +344,6 @@ public class Solution {
         String leftString = number.substring(index);
         return new Pair<>(result, leftString);
     }
-
 
     String say(String number) {
         StringBuilder resultBuilder = new StringBuilder();
