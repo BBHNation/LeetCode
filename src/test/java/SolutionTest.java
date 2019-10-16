@@ -19,6 +19,34 @@ public class SolutionTest {
      * below is tests for [合并两个有序链表]
      */
     @Test
+    public void shouldReturnTrue_whenListIsPalindrome_given1221() {
+        //given
+        ListNode palindrome = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
+
+        //when
+        boolean result = solution.isPalindrome(palindrome);
+
+        //then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void shouldReturnFalse_whenListIsNotPalindrome_given123() {
+        //given
+        ListNode notPalindrome = new ListNode(1, new ListNode(2, new ListNode(3)));
+
+        //when
+        boolean result = solution.isPalindrome(notPalindrome);
+
+        //then
+        Assert.assertFalse(result);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [合并两个有序链表]
+     */
+    @Test
     public void shouldReturnMergedList_whenMergeTwoList_given124And134() {
         //given
         ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)));

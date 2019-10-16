@@ -7,6 +7,59 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
+     * 回文链表
+     * 请判断一个链表是否为回文链表。
+     *
+     * 示例 1:
+     *
+     * 输入: 1->2
+     * 输出: false
+     * 示例 2:
+     *
+     * 输入: 1->2->2->1
+     * 输出: true
+     * 进阶：
+     * 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+     *
+     * 主要的思路是：快慢指针寻找中间位置，reverse快指针后续的node
+     * 然后顺序对比两个链表的内容
+     *
+     * @param head
+     * @return
+     */
+    public boolean isPalindrome(ListNode head) {
+        ListNode slowPointer = head;
+        ListNode fastPointer = head;
+        while (fastPointer != null && fastPointer.next != null) {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+        }
+        ListNode middlePointer = slowPointer;
+        ListNode reversedPartListHead = privateReverseList(middlePointer);
+        ListNode originPartListHead = head;
+        while (reversedPartListHead != null && originPartListHead != null) {
+            if (reversedPartListHead.val != originPartListHead.val) {
+                return false;
+            }
+            reversedPartListHead = reversedPartListHead.next;
+            originPartListHead = originPartListHead.next;
+        }
+        return true;
+    }
+
+    ListNode privateReverseList(ListNode head) {
+        ListNode preNode = null;
+        ListNode current = head;
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = preNode;
+            preNode = current;
+            current = next;
+        }
+        return preNode;
+    }
+
+    /**
      * 合并两个有序链表
      * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
      *
