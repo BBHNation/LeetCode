@@ -13,6 +13,29 @@ public class SolutionTest {
     public void init() {
         solution = new Solution();
     }
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [二叉树的最大深度]
+     */
+    @Test
+    public void shouldReturn3_whenGetMaxDepthOfTree_given3920nullNull157() {
+        //given
+        TreeNode root = new TreeNode(
+            new TreeNode(9),
+            new TreeNode(
+                new TreeNode(15),
+                new TreeNode(7),
+                20
+            ),
+            3
+        );
+
+        //when
+        int depth = solution.maxDepth(root);
+
+        //then
+        Assert.assertEquals(3, depth);
+    }
 
     /**
      * _____________________________________________________________________________________________
