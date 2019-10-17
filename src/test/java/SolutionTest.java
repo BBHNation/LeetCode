@@ -20,6 +20,34 @@ public class SolutionTest {
      * below is tests for [判断是否是二叉排序树]
      */
     @Test
+    public void shouldReturnTrue_whenJudgeIsSymmetric_givenNotSymmetricTree() {
+        //given
+        TreeNode root = new TreeNode(
+            new TreeNode(
+                null,
+                new TreeNode(3),
+                2
+            ),
+            new TreeNode(
+                null,
+                new TreeNode(3),
+                2
+            ),
+            1
+        );
+
+        //when
+        boolean treeIsSymmetric = solution.isSymmetric(root);
+
+        //then
+        Assert.assertFalse(treeIsSymmetric);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [判断是否是二叉排序树]
+     */
+    @Test
     public void shouldReturnFalse_whenJudgeIsValidBST_givenMinNumber() {
         //given
         TreeNode root = new TreeNode(

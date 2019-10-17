@@ -7,6 +7,31 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
+     * 对称二叉树
+     * 给定一个二叉树，检查它是否是镜像对称的。
+     *
+     * 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
+     *
+     * @param root the tree root
+     * @return if the tree is symmetric
+     */
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return isSymmetric(root.left, root.right);
+    }
+
+    private boolean isSymmetric(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        } else if (left == null || right == null) {
+            return false;
+        }
+        return (left.val == right.val)  && isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
+    }
+
+    /**
      * 验证二叉搜索树 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
      *
      * 假设一个二叉搜索树具有如下特征：
