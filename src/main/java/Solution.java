@@ -1,10 +1,51 @@
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 import javafx.util.Pair;
+import jdk.internal.jline.WindowsTerminal;
 
 /**
  * Solution class is saving all the solution function for leetcode questions.
  */
 public class Solution {
+
+    /**
+     * 二叉树的层次遍历
+     * 给定一个二叉树，返回其按层次遍历的节点值。 （即逐层地，从左到右访问所有节点）。
+     *
+     * 例如:
+     * 给定二叉树: [3,9,20,null,null,15,7],
+     *
+     * @param root the root of the tree
+     * @return result
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            List<Integer> tempArr = new ArrayList<>();
+            int currentSize = queue.size();
+            for (int index = 0; index < currentSize; index++) {
+                TreeNode currentNode = queue.poll();
+                tempArr.add(currentNode.val);
+                if (currentNode.left != null) {
+                    queue.add(currentNode.left);
+                }
+                if (currentNode.right!= null) {
+                    queue.add(currentNode.right);
+                }
+            }
+            result.add(tempArr);
+        }
+        return result;
+    }
 
     /**
      * 对称二叉树

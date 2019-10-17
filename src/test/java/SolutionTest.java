@@ -1,3 +1,4 @@
+import java.util.List;
 import javafx.util.Pair;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,6 +15,35 @@ public class SolutionTest {
         solution = new Solution();
     }
 
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [层次遍历二叉树]
+     */
+    @Test
+    public void shouldPrintLevelOrder() {
+        TreeNode root = new TreeNode(
+            new TreeNode(
+                new TreeNode(4),
+                new TreeNode(5),
+                2
+            ),
+            new TreeNode(
+                new TreeNode(6),
+                new TreeNode(7),
+                3
+            ),
+            1
+        );
+        List<List<Integer>> result = solution.levelOrder(root);
+        Assert.assertEquals(3, result.size());
+        Assert.assertEquals(1, result.get(0).get(0).intValue());
+        Assert.assertEquals(2, result.get(1).get(0).intValue());
+        Assert.assertEquals(3, result.get(1).get(1).intValue());
+        Assert.assertEquals(4, result.get(2).get(0).intValue());
+        Assert.assertEquals(5, result.get(2).get(1).intValue());
+        Assert.assertEquals(6, result.get(2).get(2).intValue());
+        Assert.assertEquals(7, result.get(2).get(3).intValue());
+    }
 
     /**
      * _____________________________________________________________________________________________
