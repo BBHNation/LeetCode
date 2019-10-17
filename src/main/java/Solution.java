@@ -7,15 +7,42 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
-     * 二叉树的最大深度
-     * 给定一个二叉树，找出其最大深度。
+     * 验证二叉搜索树 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+     *
+     * 假设一个二叉搜索树具有如下特征：
+     *
+     * 节点的左子树只包含小于当前节点的数。 节点的右子树只包含大于当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。
+     *
+     * @param root the tree
+     * @return is the tree valid BST
+     */
+    public boolean isValidBST(TreeNode root) {
+        return isValidBSTInRange(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isValidBSTInRange(TreeNode root, int minValue, int maxValue) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val < minValue || root.val > maxValue) {
+            return false;
+        }
+        if ((root.left != null && root.val == root.left.val)
+            || (root.right != null && root.val == root.right.val)) {
+            return false;
+        }
+        return isValidBSTInRange(root.left, minValue, root.val == Integer.MIN_VALUE ? root.val : root.val - 1)
+            && isValidBSTInRange(root.right, root.val == Integer.MAX_VALUE ? root.val : root.val + 1, maxValue);
+    }
+
+    /**
+     * 二叉树的最大深度 给定一个二叉树，找出其最大深度。
      *
      * 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
      *
      * 说明: 叶子节点是指没有子节点的节点。
      *
-     * 示例：
-     * 给定二叉树 [3,9,20,null,null,15,7]，
+     * 示例： 给定二叉树 [3,9,20,null,null,15,7]，
      *
      * 返回它的最大深度 3 。
      *
@@ -51,22 +78,15 @@ public class Solution {
     }
 
     /**
-     * 回文链表
-     * 请判断一个链表是否为回文链表。
+     * 回文链表 请判断一个链表是否为回文链表。
      *
      * 示例 1:
      *
-     * 输入: 1->2
-     * 输出: false
-     * 示例 2:
+     * 输入: 1->2 输出: false 示例 2:
      *
-     * 输入: 1->2->2->1
-     * 输出: true
-     * 进阶：
-     * 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+     * 输入: 1->2->2->1 输出: true 进阶： 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
      *
-     * 主要的思路是：快慢指针寻找中间位置，reverse快指针后续的node
-     * 然后顺序对比两个链表的内容
+     * 主要的思路是：快慢指针寻找中间位置，reverse快指针后续的node 然后顺序对比两个链表的内容
      *
      * @param head linked list
      * @return if the list is palindrome
@@ -104,13 +124,11 @@ public class Solution {
     }
 
     /**
-     * 合并两个有序链表
-     * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+     * 合并两个有序链表 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
      *
      * 示例：
      *
-     * 输入：1->2->4, 1->3->4
-     * 输出：1->1->2->3->4->4
+     * 输入：1->2->4, 1->3->4 输出：1->1->2->3->4->4
      *
      * @param l1 linked sorted list 1
      * @param l2 linked sorted list 2
@@ -140,7 +158,6 @@ public class Solution {
             }
         }
 
-
         point.next = l1 == null ? l2 : l1;
 
         return head;
@@ -151,10 +168,7 @@ public class Solution {
      *
      * 示例:
      *
-     * 输入: 1->2->3->4->5->NULL
-     * 输出: 5->4->3->2->1->NULL
-     * 进阶:
-     * 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+     * 输入: 1->2->3->4->5->NULL 输出: 5->4->3->2->1->NULL 进阶: 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
      *
      * @param head head of list
      * @return new head
@@ -197,11 +211,9 @@ public class Solution {
      *
      * 给定一个链表: 1->2->3->4->5, 和 n = 2.
      *
-     * 当删除了倒数第二个节点后，链表变为 1->2->3->5.
-     * 说明：
+     * 当删除了倒数第二个节点后，链表变为 1->2->3->5. 说明：
      *
-     * 给定的 n 保证是有效的。
-     * 你能尝试使用一趟扫描实现吗？
+     * 给定的 n 保证是有效的。 你能尝试使用一趟扫描实现吗？
      *
      * @param head head of linked list.
      * @param n 倒数第n个
@@ -212,7 +224,7 @@ public class Solution {
         ListNode pointer = head;
         ListNode preNode = head;
 
-        for(int index = 0; index < n; index++) {
+        for (int index = 0; index < n; index++) {
             fasterNode = fasterNode.next;
             if (fasterNode == null) {
                 head = head.next;
@@ -232,12 +244,9 @@ public class Solution {
     }
 
     /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
+     * Definition for singly-linked list. public class ListNode { int val; ListNode next;
+     * ListNode(int x) { val = x; } }
+     *
      * @param node node to delete.
      */
     public void deleteNode(ListNode node) {
@@ -250,8 +259,7 @@ public class Solution {
     }
 
     /**
-     * 最长公共前缀
-     * 编写一个函数来查找字符串数组中的最长公共前缀。
+     * 最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
      *
      * 如果不存在公共前缀，返回空字符串 ""。
      *
@@ -265,17 +273,18 @@ public class Solution {
         int index = 0;
         StringBuilder commonPrefixBuilder = new StringBuilder();
         while (true) {
-            if (index>=strs[0].length()) {
+            if (index >= strs[0].length()) {
                 return commonPrefixBuilder.toString();
             }
-            String currentChar = strs[0].substring(index, index+1);
-            for(String str : strs) {
-                if (str.equals("") || index >= str.length() || !str.substring(index, index+1).equals(currentChar)) {
+            String currentChar = strs[0].substring(index, index + 1);
+            for (String str : strs) {
+                if (str.equals("") || index >= str.length() || !str.substring(index, index + 1)
+                    .equals(currentChar)) {
                     return commonPrefixBuilder.toString();
                 }
             }
             commonPrefixBuilder.append(currentChar);
-            index ++;
+            index++;
         }
     }
 
@@ -285,12 +294,12 @@ public class Solution {
         }
         String prefix = strs[0];
         for (String str : strs) {
-           while (str.indexOf(prefix) != 0) {
-               prefix = prefix.substring(0, prefix.length()-1);
-               if (prefix.equals("")) {
-                   return "";
-               }
-           }
+            while (str.indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.equals("")) {
+                    return "";
+                }
+            }
         }
         return prefix;
     }
@@ -331,15 +340,10 @@ public class Solution {
     /**
      * 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
      *
-     * 1.     1
-     * 2.     11
-     * 3.     21
-     * 4.     1211
-     * 5.     111221
+     * 1.     1 2.     11 3.     21 4.     1211 5.     111221
      *
-     * 1 被读作  "one 1"  ("一个一") , 即 11。
-     * 11 被读作 "two 1s" ("两个一"）, 即 21。
-     * 21 被读作 "one 2",  "one 1" （"一个二" ,  "一个一") , 即 1211。
+     * 1 被读作  "one 1"  ("一个一") , 即 11。 11 被读作 "two 1s" ("两个一"）, 即 21。 21 被读作 "one 2",  "one 1"
+     * （"一个二" ,  "一个一") , 即 1211。
      *
      * 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。
      *
@@ -350,7 +354,7 @@ public class Solution {
      */
     public String countAndSay(int n) {
         String result = "1";
-        for (int index = 0; index < n-1; index++) {
+        for (int index = 0; index < n - 1; index++) {
             result = say(result);
         }
         return result;
@@ -360,8 +364,9 @@ public class Solution {
         String currentDigit = number.substring(0, 1);
         int index = 0;
         do {
-            index ++;
-        } while (index+1<=number.length() && currentDigit.equals(number.substring(index, index+1)));
+            index++;
+        } while (index + 1 <= number.length() && currentDigit
+            .equals(number.substring(index, index + 1)));
         String result = index + currentDigit;
         String leftString = number.substring(index);
         return new Pair<>(result, leftString);

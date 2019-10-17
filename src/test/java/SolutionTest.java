@@ -13,6 +13,84 @@ public class SolutionTest {
     public void init() {
         solution = new Solution();
     }
+
+
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [判断是否是二叉排序树]
+     */
+    @Test
+    public void shouldReturnFalse_whenJudgeIsValidBST_givenMinNumber() {
+        //given
+        TreeNode root = new TreeNode(
+            new TreeNode(Integer.MIN_VALUE),
+            null,
+            Integer.MIN_VALUE
+        );
+
+        //when
+        boolean isValidBST = solution.isValidBST(root);
+
+        //then
+        Assert.assertFalse(isValidBST);
+    }
+
+    @Test
+    public void shouldReturnFalse_whenJudgeIsValidBST_givenANotBST() {
+        //given
+        TreeNode root = new TreeNode(
+            new TreeNode(5),
+            new TreeNode(
+                new TreeNode(6),
+                new TreeNode(20),
+                15
+            ),
+            10
+        );
+
+        //when
+        boolean isValidBST = solution.isValidBST(root);
+
+        //then
+        Assert.assertFalse(isValidBST);
+    }
+
+    @Test
+    public void shouldReturnTrue_whenJudgeIsValidBST_givenABST() {
+        //given
+        TreeNode root = new TreeNode(
+            new TreeNode(1),
+            new TreeNode(3),
+            2
+        );
+
+        //when
+        boolean isValidBST = solution.isValidBST(root);
+
+        //then
+        Assert.assertTrue(isValidBST);
+    }
+
+    @Test
+    public void shouldReturnFalse_whenJudgeIsValidBST_givenNotBST() {
+        //given
+        TreeNode root = new TreeNode(
+            new TreeNode(1),
+            new TreeNode(
+                new TreeNode(3),
+                new TreeNode(6),
+                4
+            ),
+            5
+        );
+
+        //when
+        boolean isValidBST = solution.isValidBST(root);
+
+        //then
+        Assert.assertFalse(isValidBST);
+    }
+
     /**
      * _____________________________________________________________________________________________
      * below is tests for [二叉树的最大深度]

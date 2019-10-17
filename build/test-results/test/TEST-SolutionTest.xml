@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-16T06:26:13" hostname="CNbinhan.bai" time="0.002">
+<testsuite name="SolutionTest" tests="27" skipped="0" failures="0" errors="0" timestamp="2019-10-17T02:27:24" hostname="CNbinhan.bai" time="0.008">
   <properties/>
-  <testcase name="shouldReturn3_whenGetMaxDepthOfTree_given3920nullNull157" classname="SolutionTest" time="0.002"/>
+  <testcase name="shouldDeleteNodeThatIndex5_whenInputIndex5_givenNodeList" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldReturnNegativeOne_whenInput_bba_givenAaaaa" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnTrue_whenJudgeIsValidBST_givenABST" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldReturnFalse_whenJudgeIsValidBST_givenNotBST" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnBlank_whenGetLongestCommonPrefix_givenBlank" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnEmptyList_whenReverseList_givenEmptyList" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldReturn0_whenInput_a_given_a" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturn2_whenInput_ll_givenHello" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnMergedList_whenMergeTwoList_given124And134" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldDeleteFirstFromEnd_whenRemoveNthFromEnd_given12" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnBlank_whenGetLongestCommonPrefix_givenDogRacecarCar" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnFalse_whenJudgeIsValidBST_givenANotBST" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnFalse_whenJudgeHasCycle_given123" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldSay3122_whenSayDigit_given11122" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldDeleteNode_whenDeleteNthFromEnd_givenLinkedList" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturn111221_given5" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldReturn1211_given4" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnTrue_whenJudgeHasCycle_givenPos1" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldCut111_whenCutFirstSameDigit_given11122" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnFl_whenGetLongestCommonPrefix_givenFlowerFlowFlight" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturn3_whenGetMaxDepthOfTree_given3920nullNull157" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnA_whenGetLongestCommonPrefix_givenA" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnTrue_whenListIsPalindrome_given1221" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturn11_given1" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnFalse_whenJudgeIsValidBST_givenMinNumber" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldListReversed_whenReverseList_given12345" classname="SolutionTest" time="0.0"/>
+  <testcase name="shouldReturnFalse_whenListIsNotPalindrome_given123" classname="SolutionTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
