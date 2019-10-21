@@ -14,6 +14,56 @@ public class SolutionTest {
     public void init() {
         solution = new Solution();
     }
+
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [合并两个有序数组]
+     */
+    @Test
+    public void shouldMergeSuccess_whenMergeTwoSortedArray_givenTwoSortedArray() {
+        //given
+        int[] nums1 = new int[]{1,2,3,0,0,0};
+        int[] nums2 = new int[]{2,5,6};
+
+        //when
+        solution.merge(nums1, 3, nums2, 3);
+
+        //then
+        Assert.assertEquals(1, nums1[0]);
+        Assert.assertEquals(2, nums1[1]);
+        Assert.assertEquals(2, nums1[2]);
+        Assert.assertEquals(3, nums1[3]);
+        Assert.assertEquals(5, nums1[4]);
+        Assert.assertEquals(6, nums1[5]);
+    }
+
+    @Test
+    public void shouldMergeSuccess_whenMergeTwoSortedArray_givenOneArrayIsEmpty() {
+        //given
+        int[] nums1 = new int[]{1};
+        int[] nums2 = new int[]{};
+
+        //when
+        solution.merge(nums1, 1, nums2, 0);
+
+        //then
+        Assert.assertEquals(1, nums1[0]);
+    }
+
+    @Test
+    public void shouldMergeSuccess_whenMergeTwoSortedArray_givenTwoArrayLengthIsOne() {
+        //given
+        int[] nums1 = new int[]{2, 0};
+        int[] nums2 = new int[]{1};
+
+        //when
+        solution.merge(nums1, 1, nums2, 1);
+
+        //then
+        Assert.assertEquals(1, nums1[0]);
+        Assert.assertEquals(2, nums1[1]);
+    }
+
     /**
      * _____________________________________________________________________________________________
      * below is tests for [层次遍历二叉树]
