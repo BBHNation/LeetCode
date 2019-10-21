@@ -55,6 +55,19 @@ public class Solution {
         }
     }
 
+
+    public void newMerge(int[] nums1, int m, int[] nums2, int n) {
+        int len1 = m-1;
+        int len2 = n-1;
+        int len = m+n-1;
+
+        while (len1>=0&&len2>=0) {
+            nums1[len--] = nums1[len1] > nums2[len2] ? nums1[len1--] : nums2[len2--];
+        }
+        // if nums2 remain some num. we need to copy nums2 remaining nums to num1.
+        System.arraycopy(nums2, 0, nums1, 0, len2 + 1);
+    }
+
     /**
      * 将有序数组转换为二叉搜索树
      * 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。

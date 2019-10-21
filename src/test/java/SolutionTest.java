@@ -26,7 +26,7 @@ public class SolutionTest {
         int[] nums2 = new int[]{2,5,6};
 
         //when
-        solution.merge(nums1, 3, nums2, 3);
+        solution.newMerge(nums1, 3, nums2, 3);
 
         //then
         Assert.assertEquals(1, nums1[0]);
