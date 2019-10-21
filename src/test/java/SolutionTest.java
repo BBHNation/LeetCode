@@ -14,6 +14,20 @@ public class SolutionTest {
     public void init() {
         solution = new Solution();
     }
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [层次遍历二叉树]
+     */
+    @Test
+    public void shouldReturnCurrentTreeRoot_givenSortedArray() {
+        int[] arr = new int[]{-10, -3, 0, 5, 9};
+        TreeNode root = solution.sortedArrayToBST(arr);
+        Assert.assertEquals(0, root.val);
+        Assert.assertEquals(-3, root.left.val);
+        Assert.assertEquals(9, root.right.val);
+        Assert.assertEquals(-10, root.left.left.val);
+        Assert.assertEquals(5, root.right.left.val);
+    }
 
     /**
      * _____________________________________________________________________________________________
