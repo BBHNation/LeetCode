@@ -17,6 +17,16 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [爬楼梯动态规划]
+     */
+    @Test
+    public void shouldReturn3_whenClimbStairs_given3() {
+        int ways = solution.climbStairs(3);
+        Assert.assertEquals(3, ways);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [合并两个有序数组]
      */
     @Test

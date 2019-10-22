@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-22T01:33:02" hostname="CNbinhan.bai" time="86.068">
+<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-22T03:31:32" hostname="CNbinhan.bai" time="0.0">
   <properties/>
-  <testcase name="shouldFindFirstBadVersion" classname="SolutionTest" time="86.068"/>
+  <testcase name="shouldReturn3_whenClimbStairs_given3" classname="SolutionTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

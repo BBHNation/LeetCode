@@ -1,4 +1,3 @@
-import com.sun.jmx.remote.internal.ArrayQueue;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,8 +10,51 @@ import javafx.util.Pair;
  * Solution class is saving all the solution function for leetcode questions.
  */
 public class Solution {
-    private int wrongVersion = 1702766719;
 
+    /**
+     * 爬楼梯
+     * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+     *
+     * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+     *
+     * 注意：给定 n 是一个正整数。
+     *
+     * @param n 总共需要爬n个台阶
+     * @return 返回有多少种不同的方式爬到楼顶
+     */
+    public int climbStairs(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+
+        int numOfTwoStepBefore = 1;
+        int numOfOneStepBefore = 2;
+        int numOfCurrentStep = 0;
+        for (int index = 0; index < n-2; index++) {
+            numOfCurrentStep = numOfTwoStepBefore + numOfOneStepBefore;
+            numOfTwoStepBefore = numOfOneStepBefore;
+            numOfOneStepBefore = numOfCurrentStep;
+        }
+        return numOfCurrentStep;
+    }
+
+    /**
+     * 第一个错误的版本
+     * 你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。
+     *
+     * 假设你有 n 个版本 [1, 2, ..., n]，你想找出导致之后所有版本出错的第一个错误的版本。
+     *
+     * 你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。
+     *
+     * @param n 总共有多少个版本
+     * @return 第一个错误版本
+     */
     public int firstBadVersion(int n) {
         return firstBadVersionInRange(1, n);
     }
@@ -30,6 +72,7 @@ public class Solution {
     }
 
     private boolean isBadVersion(int version) {
+        int wrongVersion = 1702766719;
         return version >= wrongVersion;
     }
 
