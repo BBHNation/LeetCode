@@ -12,12 +12,48 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
+     * 买卖股票的最佳时机
+     * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+     *
+     * 如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
+     *
+     * 注意你不能在买入股票前卖出股票。
+     *
+     * 主要思路，循环一次，保存目前为止的最低价格和最大利润。
+     * 动态规划推导公式：（前n天的最大利润）= MAX（前n-1天的最大利润， 第n天的价格 - 前n-1天中的最低价格）
+     *
+     * f(n) = max(f(n-1), price_n - current_min_price)
+     *
+     * 可以优化的地方是，保存每一步的状态计算结果。因为状态会重复计算。
+     *
+     * @param prices 价格变化列表
+     * @return 以此买入卖出的最大利润
+     */
+    public int maxProfit(int[] prices) {
+        var minPrice = Integer.MAX_VALUE;
+        var maxProfit = 0;
+        for (int price : prices) {
+            if (price < minPrice) {
+                minPrice = price;
+            } else {
+                maxProfit = Math.max(maxProfit, price - minPrice);
+            }
+        }
+        return maxProfit;
+    }
+
+    /**
      * 爬楼梯
      * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
      *
      * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
      *
      * 注意：给定 n 是一个正整数。
+     *
+     * 动态规划状态推导公式：
+     * n阶台阶的方法数量 = 最后只迈出1步的方法数 + 最后只迈出2步的方法数
+     * f(n) = g(1) + g(2)  // 其中g代表最后一步跨出多少台阶的方案数量
+     * f(n) = f(n-1) + f(n-2)
      *
      * @param n 总共需要爬n个台阶
      * @return 返回有多少种不同的方式爬到楼顶

@@ -17,6 +17,15 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
+     * below is tests for [买卖股票的最佳时机]
+     */
+    @Test
+    public void shouldReturn6_whenFindMaxProfit_given715364() {
+        Assert.assertEquals(5, solution.maxProfit(new int[]{7,1,5,3,6,4}));
+    }
+
+    /**
+     * _____________________________________________________________________________________________
      * below is tests for [爬楼梯动态规划]
      */
     @Test
