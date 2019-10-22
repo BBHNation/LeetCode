@@ -11,6 +11,28 @@ import javafx.util.Pair;
  * Solution class is saving all the solution function for leetcode questions.
  */
 public class Solution {
+    private int wrongVersion = 1702766719;
+
+    public int firstBadVersion(int n) {
+        return firstBadVersionInRange(1, n);
+    }
+
+    private int firstBadVersionInRange(int start, int end) {
+        if (start == end) {
+            return start;
+        }
+        int middle = start/2 + end/2;
+        if (isBadVersion(middle)) {
+            return firstBadVersionInRange(start, middle);
+        } else {
+            return firstBadVersionInRange(middle+1, end);
+        }
+    }
+
+    private boolean isBadVersion(int version) {
+        return version >= wrongVersion;
+    }
+
 
     /**
      * 合并两个有序数组

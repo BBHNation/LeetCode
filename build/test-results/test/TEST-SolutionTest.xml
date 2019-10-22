@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-21T05:58:41" hostname="CNbinhan.bai" time="0.001">
+<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-22T01:33:02" hostname="CNbinhan.bai" time="86.068">
   <properties/>
-  <testcase name="shouldMergeSuccess_whenMergeTwoSortedArray_givenTwoSortedArray" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldFindFirstBadVersion" classname="SolutionTest" time="86.068"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

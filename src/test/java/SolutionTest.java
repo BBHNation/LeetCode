@@ -20,6 +20,16 @@ public class SolutionTest {
      * below is tests for [合并两个有序数组]
      */
     @Test
+    public void shouldFindFirstBadVersion() {
+        int firstBadVersion = solution.firstBadVersion(2126753390);
+        Assert.assertEquals(1702766719, firstBadVersion);
+    }
+
+    /**
+     * _____________________________________________________________________________________________
+     * below is tests for [合并两个有序数组]
+     */
+    @Test
     public void shouldMergeSuccess_whenMergeTwoSortedArray_givenTwoSortedArray() {
         //given
         int[] nums1 = new int[]{1,2,3,0,0,0};
