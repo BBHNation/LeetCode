@@ -33,7 +33,7 @@ public class Solution {
             return 2;
         }
 
-        int numOfTwoStepBefore = 1;
+        var numOfTwoStepBefore = 1;
         int numOfOneStepBefore = 2;
         int numOfCurrentStep = 0;
         for (int index = 0; index < n-2; index++) {
