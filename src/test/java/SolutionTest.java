@@ -17,8 +17,20 @@ public class SolutionTest {
 
     /**
      * _____________________________________________________________________________________________
-     * below is tests for [买卖股票的最佳时机]
+     * below is tests for [最大子序和]
      */
+    @Test
+    public void shouldReturn6_whenMaxSubArray_given213412154() {
+        //given
+        int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+        //when
+        int result = solution.maxSubArray(nums);
+
+        //then
+        Assert.assertEquals(6, result);
+    }
+
     @Test
     public void shouldReturn6_whenFindMaxProfit_given715364() {
         Assert.assertEquals(5, solution.maxProfit(new int[]{7,1,5,3,6,4}));

@@ -12,6 +12,33 @@ import javafx.util.Pair;
 public class Solution {
 
     /**
+     * 最大子序和
+     * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+     *
+     * 示例:
+     *
+     * 输入: [-2,1,-3,4,-1,2,1,-5,4],
+     * 输出: 6
+     * 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+     * 进阶:
+     *
+     * 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
+     *
+     * 解题思路，找到状态转移公式：  f(n) = max[f(n-1), f(n-1)+n]
+     *
+     * @param nums 给定的数组
+     * @return 返回最大子序和
+     */
+    public int maxSubArray(int[] nums) {
+        int sum = 0, maxSum = Integer.MIN_VALUE;
+        for (int i : nums) {
+            sum = Math.max(i, sum + i);
+            maxSum = Math.max(sum, maxSum);
+        }
+        return maxSum;
+    }
+
+    /**
      * 买卖股票的最佳时机
      * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
      *
@@ -112,7 +139,6 @@ public class Solution {
         return version >= wrongVersion;
     }
 
-
     /**
      * 合并两个有序数组
      * 给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。
@@ -155,7 +181,6 @@ public class Solution {
             }
         }
     }
-
 
     public void newMerge(int[] nums1, int m, int[] nums2, int n) {
         int len1 = m-1;

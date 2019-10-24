@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-22T07:10:01" hostname="CNbinhan.bai" time="0.001">
+<testsuite name="SolutionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-24T06:20:56" hostname="CNbinhan.bai" time="3.013">
   <properties/>
-  <testcase name="shouldReturn6_whenFindMaxProfit_given715364" classname="SolutionTest" time="0.001"/>
+  <testcase name="shouldReturn6_whenMaxSubArray_given213412154" classname="SolutionTest" time="3.013"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
